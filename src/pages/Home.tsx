@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Link } from 'react-router-dom';
 import { pokemonData } from '../data/pokemonData';
+import { setTypeColor } from '../services';
 
 const HomePage: React.FC = () => {
   const [pokemon, setPokemon] = useState<Pokemon[]>(pokemonData);
@@ -62,9 +63,42 @@ const HomePage: React.FC = () => {
                         {poke.name}
                       </Link>
                     </h2>
-                    <div>
-                      <small>Height: {poke.height}</small>
-                      <small>Weight: {poke.weight}</small>
+                   <div className='row'>
+                      <div className='col'>
+                        <div className='text-secondary'>Height</div>
+                        <div>{poke.height}</div>
+                        <div className='text-secondary'>Weight</div>
+                        <div>{poke.weight}</div>
+                      </div>
+                      <div className='col'>
+                        <div className='text-secondary'>Type</div>
+                        <div>
+                          {poke.type.map((t, i) => {
+                            return (
+                              <span
+                                className='badge badge-pill text-white mx-1'
+                                style={{ backgroundColor: setTypeColor(t) }}
+                                key={i}>
+                                {t}
+                              </span>
+                            );
+                          })}
+                        </div>
+
+                        <div className='text-secondary'>Weaknesses</div>
+                        <div>
+                          {poke.weaknesses.map((w, i) => {
+                            return (
+                              <span
+                                className='badge badge-pill text-white mx-1'
+                                style={{ backgroundColor: setTypeColor(w) }}
+                                key={i}>
+                                {w}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </div>
                   </div>
                   {/* section pokemon name that is wrapped in a link */}
