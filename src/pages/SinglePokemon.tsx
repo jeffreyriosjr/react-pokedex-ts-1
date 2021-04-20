@@ -51,7 +51,7 @@ const SinglePokemonPage: React.FC = () => {
       {pokemon ? (
         <div className='row mt-3'>
           <div className='col'>
-            <div className='card'>
+            <div className='card text-center'>
               <div className='row no-gutters'>
                 <div className='col-sm-12 col-md-2'>
                   <div className='img-container text-center d-flex justify-content-center align-items-center'>
@@ -74,6 +74,22 @@ const SinglePokemonPage: React.FC = () => {
                         <div>{pokemon.height}</div>
                         <div className='text-secondary'>Weight</div>
                         <div>{pokemon.weight}</div>
+                        <div className='text-secondary'>Candy</div>
+                        <div>{pokemon.candy}</div>
+                        <div className='text-secondary'>Candy Count</div>
+                        <div>{pokemon.candy_count}</div>
+                        </div>
+                        <div className='row'>
+                        <div className='col'>
+                        <div className='text-secondary'>Egg</div>
+                        <div>{pokemon.egg}</div>
+                        <div className='text-secondary'>Spawn Chance</div>
+                        <div>{pokemon.spawn_chance}</div>
+                        <div className='text-secondary'>Average Spawns</div>
+                        <div>{pokemon.avg_spawns}</div>
+                        <div className='text-secondary'>Spawn Time</div>
+                        <div>{pokemon.spawn_time}</div>
+                      </div>
                       </div>
                       <div className='col'>
                         <div className='text-secondary'>Type</div>
